@@ -6,7 +6,7 @@ services:
         user: sammy
         uid: 1000
       context: ./
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     working_dir: /var/www/
     environment:
       - COMPOSER_MEMORY_LIMIT=-1
@@ -18,7 +18,7 @@ services:
       - lahmi
 
   db:
-    image: mysql:5.7
+    image: mysql:8.1
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -31,7 +31,7 @@ services:
       - ./docker-compose/mysql/my.cnf:/etc/mysql/my.cnf
       - ./docker-compose/mysql/init:/docker-entrypoint-initdb.d
     ports:
-      - 3307:3306
+      - 3306:3306
     networks:
       - lahmi
 
