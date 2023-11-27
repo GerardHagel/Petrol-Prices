@@ -4,10 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ًApplication</title>
-        @vite('resources/css/app.css')
+        <style>@vite('resources/css/app.css')</style>
+        
+
     </head>
     <body>
-        <div id="app"></div>
-        @vite('resources/js/app.js')
+        <div id="Menu">
+        @vite('resources/js/Menu.js')
+        </div>
+
+        <div id="Main">
+        @vite('resources/js/Main.js')
+        </div>
     </body>
 </html>
