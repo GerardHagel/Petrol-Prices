@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ًApplication</title>
         <style>@vite('resources/css/app.css')</style>
-        
+
 
     </head>
     <body>
