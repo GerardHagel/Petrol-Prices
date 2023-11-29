@@ -7,19 +7,6 @@ use Illuminate\Http\Request;
 
 class FuelStationController extends Controller
 {
-    public function search(Request $request)
-    {
-        $location = $request->input('location');
-        $fuelType = $request->input('fuel_type');
-
-        $fuelStations = FuelStation::query()
-            ->where('location', 'like', "%$location%")
-            ->where('fuel_type', 'like', "%$fuelType%")
-            // Dodaj inne warunki wyszukiwania według potrzeb
-            ->get();
-
-        return view('fuel_stations.results', compact('fuelStations'));
-    }
 
     public function search(Request $request)
     {
