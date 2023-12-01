@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/routes/web.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/PetrolPricesAPI/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="979b29e9-193f-43a8-94ac-1f5cbe655df5" />
+        <option name="url" value="https://github.com/GerardHagel/Petrol-Prices.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 8.2">
+    <include_path>
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/string" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/translation" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-uuid" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nunomaduro/termwind" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/ramsey/collection" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nunomaduro/collision" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/ramsey/uuid" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/filp/whoops" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/brick/math" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psy/psysh" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nesbot/carbon" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/prompts" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/sail" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/sanctum" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/tinker" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/pint" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/tijsverkoyen/css-to-inline-styles" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/dragonmantank/cron-expression" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/config" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/commonmark" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/mockery/mockery" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/mime-type-detection" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/flysystem" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/flysystem-local" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/fruitcake/php-cors" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/guzzlehttp/uri-template" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/graham-campbell/result-type" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/composer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/spatie/backtrace" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/vlucas/phpdotenv" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/spatie/ignition" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/spatie/flare-client-php" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/spatie/laravel-ignition" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/container" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/event-dispatcher" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/hamcrest/hamcrest-php" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/phar-io/manifest" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/routing" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-php83" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/css-selector" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-ctype" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/error-handler" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/console" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/event-dispatcher" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/var-dumper" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-foundation" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/uid" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-kernel" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="2YnpSKH2Vu3q6SiN6TzZNu2ImN2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Radek/Documents/GitHub/Petrol-Prices&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/PetrolPricesAPI/phpunit.xml" scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="" />
+      <created>1701171198663</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701171198663</updated>
+      <workItem from="1701171201264" duration="68000" />
+      <workItem from="1701171449196" duration="270000" />
+      <workItem from="1701171794818" duration="52000" />
+      <workItem from="1701256369584" duration="1049000" />
+      <workItem from="1701258130565" duration="1648000" />
+      <workItem from="1701259823768" duration="242000" />
+      <workItem from="1701260089662" duration="139000" />
+      <workItem from="1701260259750" duration="315000" />
+      <workItem from="1701260627999" duration="11000" />
+      <workItem from="1701260640196" duration="2705000" />
+      <workItem from="1701264120499" duration="707000" />
+      <workItem from="1701264862527" duration="828000" />
+      <workItem from="1701265717844" duration="49000" />
+      <workItem from="1701265770876" duration="631000" />
+      <workItem from="1701266517905" duration="307000" />
+      <workItem from="1701266850168" duration="20000" />
+      <workItem from="1701266872344" duration="998000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
