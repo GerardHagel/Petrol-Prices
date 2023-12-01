@@ -14,4 +14,5 @@ class FuelStation extends Model
         'price',
         'opening_hours',
     ];
+ //   use HasFactory;
 }
