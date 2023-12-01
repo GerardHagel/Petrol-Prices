@@ -3,22 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ًApplication</title>
-<<<<<<< Updated upstream
-        <style>@vite('resources/css/app.css')</style>
-
-
-=======
+        <title>Login</title>
         @vite('resources/css/app.css')
->>>>>>> Stashed changes
     </head>
     <body>
         <div id="Menu">
         @vite('resources/js/Menu.js')
         </div>
 
-        <div id="Main">
-        @vite('resources/js/Main.js')
+        <div id="login">
+        @vite('resources/js/login.js')
         </div>
         <div id="footer">
         @vite('resources/js/footer.js')
