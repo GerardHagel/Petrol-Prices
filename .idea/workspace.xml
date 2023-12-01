@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/routes/web.php" afterDir="false" />
+    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="Funkcjonalność 3">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/app/Models/FuelStation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/database/migrations/2023_11_29_140948_create_fuel_stations_table.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,26 +159,29 @@
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-kernel" />
     </include_path>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2YnpSKH2Vu3q6SiN6TzZNu2ImN2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Radek/Documents/GitHub/Petrol-Prices&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Radek/Documents/GitHub/Petrol-Prices",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.intentionPowerPack",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/PetrolPricesAPI/phpunit.xml" scope="XML" />
@@ -205,8 +212,24 @@
       <workItem from="1701265770876" duration="631000" />
       <workItem from="1701266517905" duration="307000" />
       <workItem from="1701266850168" duration="20000" />
-      <workItem from="1701266872344" duration="998000" />
+      <workItem from="1701266872344" duration="1847000" />
+      <workItem from="1701431877098" duration="3233000" />
     </task>
+    <task id="LOCAL-00001" summary="Funkcjonalność 3">
+      <created>1701268062664</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701268062664</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Funkcjonalność 3">
+      <created>1701268204889</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701268204889</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,5 +251,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Funkcjonalność 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funkcjonalność 3" />
   </component>
 </project>
