@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="Update workspace.xml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="4. Current and historical prices" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,8 +151,6 @@
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-kernel" />
-      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/oauth1-client" />
-      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/socialite" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -212,7 +208,6 @@
       <workItem from="1701266850168" duration="20000" />
       <workItem from="1701266872344" duration="1847000" />
       <workItem from="1701431877098" duration="3233000" />
-      <workItem from="1702985846018" duration="295000" />
     </task>
     <task id="LOCAL-00001" summary="Funkcjonalność 3">
       <created>1701268062664</created>
