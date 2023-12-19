@@ -14,5 +14,11 @@ class FuelStation extends Model
         'price',
         'opening_hours',
     ];
+
+    public function fuelPrices()
+    {
+        return $this->hasMany(FuelPrice::class);
+    }
+
  //   use HasFactory;
 }
