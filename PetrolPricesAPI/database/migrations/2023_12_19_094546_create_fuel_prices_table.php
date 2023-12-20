@@ -11,7 +11,7 @@ class CreateFuelPricesTable extends Migration
     {
         Schema::create('fuel_prices', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('fuel_station_id')->constrained(); //klucz obcy
+            $table->foreignId('fuel_station_id')->constrained(); // Klucz obcy
             $table->string('fuel_type');
             $table->decimal('price', 8, 2);
             $table->timestamp('date');
