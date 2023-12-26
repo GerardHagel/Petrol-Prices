@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ًApplication</title>
         <style>@vite('resources/css/app.css')</style>
-<head>
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,10 +20,13 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
+    <script>
+        window.googleMapsApiKey = "{{ config('services.google.maps_api_key') }}";
+    </script>
 
     </head>
     <body>
+
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -86,5 +89,11 @@
         <div id="Main">
         @vite('resources/js/Main.js')
         </div>
+
+        <div id="map-app">
+            @vite('resources/js/map.js')
+        </div>
+
+        <script type="module" src="{{ asset('js/map.js') }}"></script>
     </body>
 </html>

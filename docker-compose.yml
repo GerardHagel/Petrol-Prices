@@ -29,12 +29,13 @@ services:
       - 3000:80
 
   db:
-    image: mysql:8.1
+    image: mysql:latest
+    container_name: db
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_DATABASE: db
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: user
+      MYSQL_USER: pass
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
 
