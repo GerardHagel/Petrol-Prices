@@ -1,4 +1,3 @@
-// resources/js/map.js
 
 import { createApp } from 'vue';
 import GoogleMap from './GoogleMap.vue';

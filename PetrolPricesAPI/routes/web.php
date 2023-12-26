@@ -18,3 +18,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('auth/{provider}', [LoginController::class, 'redirectToProvider'])->name('to_provider');
 
 Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+
+Route::get('/convert-currency', [CurrencyConversionController::class, 'convert']);

@@ -19,7 +19,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script>
         window.googleMapsApiKey = "{{ config('services.google.maps_api_key') }}";
     </script>
@@ -94,6 +94,17 @@
             @vite('resources/js/map.js')
         </div>
 
+
+        <div id="travel-cost-calculator">
+            @vite('resources/js/travelcostcalculator.js')
+        </div>
+
+        <div id="currency-converter">
+            @vite('resources/js/currencyconverter.js')
+        </div>
+
         <script type="module" src="{{ asset('js/map.js') }}"></script>
+        <script type="module" src="{{ asset('resources/js/travelCostCalculatorApp.js') }}"></script>
+        <script type="module" src="{{ asset('resources/js/currencyConverterApp.js') }}"></script>
     </body>
 </html>
