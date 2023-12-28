@@ -1,66 +1,74 @@
 <template>
-    <div class="login-container">
-      <h2>Logowanie</h2>
-      <form @submit.prevent="login">
-        <label for="username">Nazwa użytkownika:</label>
-        <input type="text" id="username" v-model="username" required>
-  
-        <label for="password">Hasło:</label>
-        <input type="password" id="password" v-model="password" required>
-  
-        <button type="submit">Zaloguj się</button>
-      </form>
+
+    <div class="row">
+
+        <div class="col-sm-4" >
+            <h2 align="center"> Login</h2>
+
+            <form @submit.prevent="LoginData">
+
+
+                <div class="form-group" align="left">
+                    <label>Email</label>
+                    <input type="email" v-model="student.email" class="form-control"  placeholder="Email">
+                </div>
+
+
+                <div class="form-group" align="left">
+                    <label>Password</label>
+                    <input type="password" v-model="student.password" class="form-control"  placeholder="Password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        username: "",
-        password: "",
-      };
+
+</template>
+
+<script>
+import Vue from 'vue';
+import axios from 'axios';
+
+Vue.use(axios)
+export default {
+    name: 'Registation',
+    data () {
+        return {
+            result: {},
+            student:{
+                email: '',
+                password: ''
+            }
+        }
+    },
+    created() {
+    },
+    mounted() {
+        console.log("mounted() called.......");
     },
     methods: {
-      login() {
-        // Tutaj umieść logikę logowania
-        console.log("Logowanie...", this.username, this.password);
-      },
-    },
-  };
-  </script>
-  
-  <style scoped>
-  .login-container {
-    max-width: 300px;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-  }
-  
-  input {
-    margin-bottom: 10px;
-    padding: 8px;
-  }
-  
-  button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  </style>
-  
+        LoginData()
+        {
+            axios.post("http://127.0.0.1:8000/api/login", this.student)
+                .then(
+                    ({data})=>{
+                        console.log(data);
+                        try {
+                            if (data.status === true) {
+                                alert("Login Successfully");
+                                this.$router.push({ name: 'HelloWorld' })
+                            } else {
+                                alert("Login failed")
+                            }
+
+                        } catch (err) {
+                            alert("Error, please try again");
+                        }
+                    }
+                )
+        }
+    }
+}
+</script>
+
