@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="Funkcjonalność 3">
+<<<<<<< Updated upstream
+    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="4. Current and historical prices">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/app/Models/FuelStation.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/PetrolPricesAPI/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PetrolPricesAPI/database/migrations/2023_11_29_140948_create_fuel_stations_table.php" beforeDir="false" />
     </list>
+=======
+    <list default="true" id="ae375b01-855d-4bdc-bf4c-3df74d3e29c9" name="Changes" comment="4. Current and historical prices" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,6 +157,8 @@
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/symfony/http-kernel" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/PetrolPricesAPI/vendor/laravel/socialite" />
     </include_path>
   </component>
   <component name="ProblemsViewState">
@@ -167,21 +169,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Radek/Documents/GitHub/Petrol-Prices",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.intentionPowerPack",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Radek/Documents/GitHub/Petrol-Prices&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.intentionPowerPack&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/PetrolPricesAPI/phpunit.xml" scope="XML" />
@@ -214,6 +216,7 @@
       <workItem from="1701266850168" duration="20000" />
       <workItem from="1701266872344" duration="1847000" />
       <workItem from="1701431877098" duration="3233000" />
+      <workItem from="1703065986052" duration="378000" />
     </task>
     <task id="LOCAL-00001" summary="Funkcjonalność 3">
       <created>1701268062664</created>
@@ -229,7 +232,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701268204889</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="4. Current and historical prices">
+      <created>1703066048389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703066048389</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,6 +256,17 @@
                   <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="backendR" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
             </State>
           </value>
         </entry>
@@ -254,6 +275,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Funkcjonalność 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Funkcjonalność 3" />
+    <MESSAGE value="4. Current and historical prices" />
+    <option name="LAST_COMMIT_MESSAGE" value="4. Current and historical prices" />
   </component>
 </project>
