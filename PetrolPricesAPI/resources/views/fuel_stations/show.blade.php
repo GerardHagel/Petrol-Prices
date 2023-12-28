@@ -1,13 +1,12 @@
-<h2>Aktualne ceny paliw</h2>
-<ul>
-    @foreach($currentPrices as $price)
-        <li>{{ $price->fuel_type }}: {{ $price->price }} zł ({{ $price->date }})</li>
-    @endforeach
-</ul>
+@extends('layouts.app')
 
-<h2>Historyczne ceny paliw</h2>
-<ul>
-    @foreach($historicalPrices as $price)
-        <li>{{ $price->fuel_type }}: {{ $price->price }} zł ({{ $price->date }})</li>
-    @endforeach
-</ul>
+@section('content')
+    <div id="app">
+        <fuel-station-info
+            :current-prices="{{ json_encode($currentPrices) }}"
+            :historical-prices="{{ json_encode($historicalPrices) }}"
+        ></fuel-station-info>
+    </div>
+
+    <script src="{{ mix('js/app.js') }}"></script>
+@endsection
