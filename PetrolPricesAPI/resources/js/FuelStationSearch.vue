@@ -3,7 +3,7 @@
         <form @submit.prevent="searchFuelStations">
             <label for="location">Lokalizacja:</label>
             <input v-model="searchCriteria.location" type="text" id="location">
-
+<br> <br>
             <label for="fuelType">Rodzaj Paliwa:</label>
             <input v-model="searchCriteria.fuelType" type="text" id="fuelType">
 

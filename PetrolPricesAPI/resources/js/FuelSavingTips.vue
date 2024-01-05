@@ -1,5 +1,3 @@
-<!-- resources/js/components/FuelSavingTips.vue -->
-
 <template>
     <div>
         <h2>Artykuły i porady dotyczące oszczędzania paliwa i bezpiecznej jazdy</h2>

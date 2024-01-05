@@ -21,12 +21,28 @@
             @vite('resources/js/app.js')
         </div>
 
+        <div id="fuel-station-search">
+            @vite('resources/js/FuelStationSearch.vue')
+        </div>
+
+        <div id="fuel-prices">
+            @vite('resources/js/FuelPrices.vue')
+        </div>
+
+        <div id="fuel-station-reviews">
+            @vite('resources/js/FuelStationReviews.js')
+        </div>
+
         <div id="fuel-types-info">
             @vite('resources/js/FuelTypesInfo.vue')
         </div>
 
         <div id="fuel-saving-tips">
             @vite('resources/js/FuelSavingTips.vue')
+        </div>
+
+        <div id="contact-form">
+            @vite('resources/js/ContactForm.vue')
         </div>
 
     </body>

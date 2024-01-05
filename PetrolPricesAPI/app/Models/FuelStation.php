@@ -20,5 +20,10 @@ class FuelStation extends Model
         return $this->hasMany(FuelPrice::class);
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(FuelStationReview::class);
+    }
+
  //   use HasFactory;
 }
