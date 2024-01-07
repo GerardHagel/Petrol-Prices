@@ -1,4 +1,4 @@
-
+import './bootstrap';
 import { createApp } from 'vue';
 import GoogleMap from './GoogleMap.vue';
 

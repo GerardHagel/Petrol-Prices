@@ -1,5 +1,14 @@
 @import './base.css';
 
+header{
+  background-color: #353535;
+  top: 0;
+  left: 0;
+  font-size: 20;
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
