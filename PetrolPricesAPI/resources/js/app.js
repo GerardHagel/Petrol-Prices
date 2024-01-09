@@ -7,7 +7,8 @@ import ContactForm from "./ContactForm.vue";
 import TicketTracker from "./TicketTracker.vue";
 import FuelPrices from "./FuelPrices.vue";
 import FuelStationReviews from './FuelStationReviews.vue';
-import router from "./router.js";
+import { createRouter, createWebHistory } from 'vue-router';
+//import router from "./router.js";
 
 
 
@@ -49,6 +50,27 @@ const fuelStationReviewsContainer = document.getElementById('fuel-station-review
 if (fuelStationReviewsContainer) {
     fuelStationReviewsApp.mount(fuelStationReviewsContainer);
 }
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes: [
+        {
+            path: '/fuel-stations/:fuelStationId',
+            name: 'fuel-station',
+            component: FuelStationReviews,
+        },
+    ],
+});
+
+const app = createApp({
+
+});
+
+app.use(router);
+
+app.component('fuel-station-reviews', FuelStationReviews); // Dodaj komponent, jeśli go jeszcze nie dodano globalnie
+
+app.mount('#app');
 
 createApp(ContactForm).use(router).mount('#contact-form');
 createApp(TicketTracker).use(router).mount('#ticket-tracker');

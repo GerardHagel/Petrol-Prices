@@ -25,3 +25,5 @@ Route::get('/historical-prices', [FuelPricesController::class, 'getHistoricalPri
 
 Route::post('/fuel-stations/{fuelStation}/reviews', [FuelStationReviewController::class, 'addReview']);
 Route::get('/fuel-stations/{fuelStation}/average-rating', [FuelStationReviewController::class, 'getAverageRating']);
+
+Route::post('/fuel-stations/{fuelStationId}/reviews', [ReviewController::class, 'store']);

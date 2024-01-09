@@ -17,5 +17,9 @@
         <fuel-saving-tips></fuel-saving-tips>
     </div>
 
+
+
+    @include('searchResults')
+
     <script src="{{ mix('js/app.js') }}"></script>
 @endsection

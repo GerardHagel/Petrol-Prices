@@ -3,12 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>ًApplication</title>
         <style>@vite('resources/css/app.css')</style>
         <script src="{{ mix('js/app.js') }}" defer></script>
 
     </head>
     <body>
+
         <div id="Menu">
         @vite('resources/js/Menu.js')
         </div>
@@ -30,7 +32,7 @@
         </div>
 
         <div id="fuel-station-reviews">
-            @vite('resources/js/FuelStationReviews.js')
+            @vite('resources/js/FuelStationReviews.vue')
         </div>
 
         <div id="fuel-types-info">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\FuelStation;
+use App\Models\FuelStation;
 use Illuminate\Http\Request;
 use App\Models\FuelPrice;
 
@@ -11,6 +11,8 @@ class FuelStationController extends Controller
 
     public function search(Request $request)
     {
+       // dd($request->all());
+
         $location = $request->input('location');
         $fuelType = $request->input('fuel_type');
         $maxPrice = $request->input('max_price');
@@ -34,16 +36,22 @@ class FuelStationController extends Controller
             $query->whereJsonContains('opening_hours', ['day' => now()->format('l'), 'open' => true]);
         }
 
+        dd($query->toSql());
+
         $fuelStations = $query->get();
 
-        return view('fuel_stations.results', compact('fuelStations'));
+
+        // Debug
+         dd($fuelStations);
+
+        return view('results', compact('fuelStations'));
     }
 
     public function index()
     {
         $fuelStations = FuelStation::all();
 
-        return view('fuel_stations.index', compact('fuelStations'));
+        return view('index', compact('fuelStations'));
     }
 
     public function create()
@@ -99,6 +107,6 @@ class FuelStationController extends Controller
         $currentPrices = $station->fuelPrices()->latest()->take(5)->get(); // Aktualne ceny (ostatnie 5)
         $historicalPrices = $station->fuelPrices()->oldest()->take(10)->get(); // Historyczne ceny (pierwsze 10)
 
-        return view('fuel_stations.show', compact('station', 'currentPrices', 'historicalPrices'));
+        return view('show', compact('station', 'currentPrices', 'historicalPrices'));
     }
 }

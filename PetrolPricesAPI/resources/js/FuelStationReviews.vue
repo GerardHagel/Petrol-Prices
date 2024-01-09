@@ -1,3 +1,5 @@
+import axios from "axios";
+
 <template>
     <div>
         <h2>Recenzje i Oceny</h2>
@@ -27,42 +29,72 @@
 export default {
     data() {
         return {
-            fuelStationId: 1, // Zmiana na właściwość przechowującą fuelStationId
             review: '',
             rating: 1,
             reviews: [],
             averageRating: null,
         };
     },
-    mounted() {
-        this.fetchReviews(); // Usunięcie async z metody mounted
-        this.fetchAverageRating(); // Usunięcie async z metody mounted
-    },
     methods: {
         async submitReview() {
-            // Wyślij recenzję do API i zaktualizuj dane
-            await axios.post(`/api/fuel-stations/${this.fuelStationId}/reviews`, {
-                review: this.review,
-                rating: this.rating,
-            });
+            try {
+                console.log(this.$route.params);
+                // Uzyskaj fuelStationId z obiektu $route
+                const fuelStationId = this.$route ? this.$route.params.fuelStationId : null;
 
-            await this.fetchReviews();
-            await this.fetchAverageRating();
+                if (!fuelStationId) {
+                    console.error('Błąd: Nie można uzyskać fuelStationId.');
+                    return;
+                }
 
-            // Wyczyść pola po dodaniu recenzji
-            this.review = '';
-            this.rating = 1;
+                // Wyślij recenzję do API i zaktualizuj dane
+                await axios.post(`/api/fuel-stations/${fuelStationId}/reviews`, {
+                    review: this.review,
+                    rating: this.rating,
+                });
+
+                await this.fetchReviews();
+                await this.fetchAverageRating();
+
+                // Wyczyść pola po dodaniu recenzji
+                this.review = '';
+                this.rating = 1;
+            } catch (error) {
+                console.error('Błąd podczas dodawania recenzji:', error);
+            }
         },
 
         async fetchReviews() {
             // Pobierz recenzje z API
-            this.reviews = await axios.get(`/api/fuel-stations/${this.fuelStationId}/reviews`).then(response => response.data);
+            await this.fetchData('reviews');
         },
 
         async fetchAverageRating() {
             // Pobierz średnią ocenę z API
-            this.averageRating = await axios.get(`/api/fuel-stations/${this.fuelStationId}/average-rating`).then(response => response.data.averageRating);
+            await this.fetchData('average-rating');
         },
+
+        async fetchData(endpoint) {
+            const fuelStationId = this.$route?.params?.fuelStationId;
+
+            if (!fuelStationId) {
+                console.error('Błąd: Nie można uzyskać fuelStationId.');
+                return;
+            }
+
+            const response = await axios.get(`/api/fuel-stations/${fuelStationId}/${endpoint}`);
+
+            if (endpoint === 'reviews') {
+                this.reviews = response.data;
+            } else if (endpoint === 'average-rating') {
+                this.averageRating = response.data.averageRating;
+            }
+        },
+    },
+    mounted() {
+        // Wywołaj metody fetchReviews i fetchAverageRating przy załadowaniu komponentu
+        this.fetchReviews();
+        this.fetchAverageRating();
     },
 };
 </script>
