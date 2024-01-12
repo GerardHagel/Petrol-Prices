@@ -19,19 +19,19 @@ import { RouterLink, RouterView } from 'vue-router'
       </div>
     
     <div class="proficon">
-      
+      <img src="src/assets/profile-icon.png" alt="Logo" >
     </div>
   </header>
   <RouterView />
 </template>
 
 <style scoped>
-.logo{
+.logo,.proficon{
   margin: 0;
   padding: 0;
 }
-.logo img {
-  max-height: 30px;
+.logo img, .proficon img{
+  max-height: 40px;
   height: auto;
 }
 header {
