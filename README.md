@@ -1,9 +1,26 @@
 # Petrol-Prices
+Projektowanie i programowanie systemów internetowych II, projekt
 
-DEVOPS - 
-BACKEND/TESTER - 
-BACKEND/TESTER - 
-FRONTEND - 
 PM - Oskar Dąbrowski
 
-Projektowanie i programowanie systemów internetowych II, projekt
+DEVOPS - Gerard Hagel
+
+BACKEND/TESTER - Marcel Filosek
+
+BACKEND/TESTER - Radosław Czapliński
+
+FRONTEND - Adam Cendlewski
+
+Utworzyć plik .env na podstawie .env.example w folderze PetrolPricesAPI
+
+W terminalu dla Backendu (PetrolPricesAPI), wpisać:
+
+composer install
+
+php artisan serve
+
+W teminalu dla Frontendu (PetrolPricesClient), wpisać:
+
+npm install
+
+npm run dev

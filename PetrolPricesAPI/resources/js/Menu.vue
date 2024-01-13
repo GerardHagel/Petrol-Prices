@@ -4,7 +4,11 @@
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
     <router-link to="/contact">Contact</router-link>
-    <!-- Dodaj inne elementy menu w zależności od potrzeb -->
+
+    <!-- Dodaj inne elementy menu w zależności od potrzeb --> 
+    <router-link to="/login">Login</router-link>
+
+
   </div>
 </template>
 
@@ -23,7 +27,6 @@ body{
   background-color:gainsboro;
   margin: 0;
   padding: 0;
- 
 }
 .horizontal-menu {
   justify-content: center;
@@ -31,7 +34,6 @@ body{
   list-style: none;
   padding: 0;
   
-
 }
 
 .horizontal-menu router-link {
