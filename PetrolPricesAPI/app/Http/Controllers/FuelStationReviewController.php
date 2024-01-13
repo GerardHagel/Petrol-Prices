@@ -10,24 +10,25 @@ class FuelStationReviewController extends Controller
 {
     public function addReview(Request $request, FuelStation $fuelStation)
     {
-      //  dd('Przed przetworzeniem żądania', $request->all());
-
         $request->validate([
             'review' => 'required|string',
             'rating' => 'required|integer|between:1,5',
         ]);
 
-        $review = new FuelStationReview([
-            'review' => $request->input('review'),
-            'rating' => $request->input('rating'),
-        ]);
+        // Sprawdź, czy użytkownik jest zalogowany
+        $userId = auth()->id();
 
-        $fuelStation->reviews()->save($review);
+        if (!$userId) {
+            return response()->json(['message' => 'Użytkownik niezalogowany'], 401);
+        }
 
-        dd('Po przetworzeniu żądania', $request->all());
+        // Dodaj user_id do danych recenzji
+        $reviewData = $request->all();
+       // $reviewData['user_id'] = auth()->id(); // Załóżmy, że korzystasz z autentykacji, możesz dostosować to do swojej logiki
+        $reviewData['user_id'] = $userId;
+        $fuelStation->reviews()->create($reviewData);
 
         return response()->json(['message' => 'Recenzja została dodana'], 201);
-
     }
 
     public function getAverageRating(FuelStation $fuelStation)
@@ -37,3 +38,4 @@ class FuelStationReviewController extends Controller
         return response()->json(['averageRating' => $averageRating]);
     }
 }
+

@@ -56,6 +56,7 @@ class FuelStationController extends Controller
 
     public function create()
     {
+      //  dd('Metoda create działa!');
         return view('fuel_stations.create');
     }
 

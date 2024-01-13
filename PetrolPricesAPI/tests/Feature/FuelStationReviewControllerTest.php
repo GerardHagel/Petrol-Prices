@@ -14,22 +14,18 @@ class FuelStationReviewControllerTest extends TestCase
 
     public function testAddReview()
     {
-        // Utwórz obiekt FuelStation za pomocą fabryki
+        // Utwórz obiekt FuelStationTest za pomocą fabryki
         $fuelStation = FuelStation::factory()->create();
 
-        // Utwórz obiekt User za pomocą fabryki
+        // Utwórz obiekt User za pomocą fabryki i zaloguj go
         $user = User::factory()->create();
+        $this->actingAs($user);
 
         // Utwórz dane recenzji za pomocą fabryki
-        $reviewData = FuelStationReview::factory()->make([
-            'user_id' => $user->id,
-        ]) ->toArray();
+        $reviewData = FuelStationReview::factory()->make()->toArray();
 
         // Wywołaj endpoint API z odpowiednimi danymi
         $response = $this->post("/api/fuel-stations/{$fuelStation->id}/reviews", $reviewData);
-
-        // Debugowanie: Wyświetl treść odpowiedzi i status odpowiedzi
-     //   dd('Po żądaniu', $response->getContent(), $response->getStatusCode());
 
         // Sprawdź, czy odpowiedź ma status 201 (Created)
         $response->assertStatus(201);
@@ -43,3 +39,5 @@ class FuelStationReviewControllerTest extends TestCase
         ]);
     }
 }
+
+
