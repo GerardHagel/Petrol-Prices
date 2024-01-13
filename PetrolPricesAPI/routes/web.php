@@ -5,6 +5,7 @@ use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\YourController;
 use App\Http\Controllers\FuelStationController;
 use App\Http\Controllers\FuelPricesController;
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return view('app');

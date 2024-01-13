@@ -26,4 +26,5 @@ class FuelStation extends Model
     }
 
     use HasFactory;
+    // use HasFactory;
 }
