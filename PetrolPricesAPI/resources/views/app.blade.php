@@ -19,6 +19,7 @@
         window.googleMapsApiKey = "{{ config('services.google.maps_api_key') }}";
     </script>
 
+
     </head>
     <body>
 
@@ -97,7 +98,7 @@
         </div>
 
         <div id="fuel-station-reviews">
-            @vite('resources/js/FuelStationReviews.js')
+            @vite('resources/js/FuelStationReviews.vue')
         </div>
 
         <div id="fuel-types-info">
