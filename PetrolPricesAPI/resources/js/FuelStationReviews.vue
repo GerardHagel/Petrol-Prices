@@ -1,5 +1,3 @@
-import axios from "axios";
-
 <template>
     <div>
         <h2>Recenzje i Oceny</h2>
@@ -26,6 +24,8 @@ import axios from "axios";
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     data() {
         return {
@@ -38,9 +38,8 @@ export default {
     methods: {
         async submitReview() {
             try {
-                console.log(this.$route.params);
                 // Uzyskaj fuelStationId z obiektu $route
-                const fuelStationId = this.$route ? this.$route.params.fuelStationId : null;
+                const fuelStationId = this.$route?.params?.fuelStationId;
 
                 if (!fuelStationId) {
                     console.error('Błąd: Nie można uzyskać fuelStationId.');
@@ -48,7 +47,7 @@ export default {
                 }
 
                 // Wyślij recenzję do API i zaktualizuj dane
-                await axios.post(`/api/fuel-stations/${fuelStationId}/reviews`, {
+                await axios.post(`http://127.0.0.1:8000/api/fuel-stations/${fuelStationId}/reviews`, {
                     review: this.review,
                     rating: this.rating,
                 });

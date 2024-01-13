@@ -25,5 +25,5 @@ class FuelStation extends Model
         return $this->hasMany(FuelStationReview::class);
     }
 
- //   use HasFactory;
+    use HasFactory;
 }

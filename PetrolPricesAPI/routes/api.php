@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuelPricesController;
 use App\Http\Controllers\FuelStationReviewController;
+use App\Http\Controllers\FuelStationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,4 +27,6 @@ Route::get('/historical-prices', [FuelPricesController::class, 'getHistoricalPri
 Route::post('/fuel-stations/{fuelStation}/reviews', [FuelStationReviewController::class, 'addReview']);
 Route::get('/fuel-stations/{fuelStation}/average-rating', [FuelStationReviewController::class, 'getAverageRating']);
 
-Route::post('/fuel-stations/{fuelStationId}/reviews', [ReviewController::class, 'store']);
+//Route::post('/fuel-stations/{fuelStationId}/reviews', [ReviewController::class, 'store']);
+Route::post('/fuel-stations/{fuelStationId}/reviews', 'FuelStationReviewController@store');
+Route::post('/fuel-stations/search', [FuelStationController::class, 'search']);
