@@ -15,8 +15,7 @@ return [
     |
     */
 
-    'driver' => 'bcrypt',
-
+    'driver' => env('HASH_DRIVER', 'bcrypt'),
     /*
     |--------------------------------------------------------------------------
     | Bcrypt Options
@@ -29,7 +28,7 @@ return [
     */
 
     'bcrypt' => [
-        'rounds' => env('BCRYPT_ROUNDS', 10),
+        'rounds' => 10,
     ],
 
     /*
@@ -44,9 +43,9 @@ return [
     */
 
     'argon' => [
-        'memory' => 65536,
-        'threads' => 1,
-        'time' => 4,
+        'memory' => 1024,
+        'threads' => 2,
+        'time' => 2,
     ],
 
 ];

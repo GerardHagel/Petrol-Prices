@@ -36,13 +36,13 @@ class FuelStationController extends Controller
             $query->whereJsonContains('opening_hours', ['day' => now()->format('l'), 'open' => true]);
         }
 
-        dd($query->toSql());
+       // dd($query->toSql());
 
         $fuelStations = $query->get();
 
 
         // Debug
-         dd($fuelStations);
+        // dd($fuelStations);
 
         return view('results', compact('fuelStations'));
     }
@@ -56,6 +56,7 @@ class FuelStationController extends Controller
 
     public function create()
     {
+      //  dd('Metoda create działa!');
         return view('fuel_stations.create');
     }
 
