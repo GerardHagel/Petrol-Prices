@@ -11,9 +11,10 @@ header{
 
 #app {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
+  margin-top: 50px ;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: rem;
   font-weight: normal;
 }
 
