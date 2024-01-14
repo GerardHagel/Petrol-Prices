@@ -1,13 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
   <header>
     <RouterLink to="/">
       <div class="logo">
-        <img src="src/assets/logo.png" alt="Logo">
+        <img src="src/assets/logo.png" alt="Logo" />
       </div>
     </RouterLink>
 
@@ -20,7 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink to="/calc">Currency Calculator</RouterLink>
             <RouterLink to="/travelCost">Travel Cost Calculator</RouterLink>
             <RouterLink to="/fuels">Fuels</RouterLink>
-            <RouterLink to="">Articles</RouterLink>
+            <RouterLink to="/articles">Articles</RouterLink>
           </div>
         </div>
         <RouterLink to="/faq">FAQ</RouterLink>
@@ -30,7 +29,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
     <RouterLink to="/login">
       <div class="proficon">
-        <img src="src/assets/profile-icon.png" alt="Logo">
+        <img src="src/assets/profile-icon.png" alt="Logo" />
       </div>
     </RouterLink>
   </header>
@@ -38,7 +37,10 @@ import { RouterLink, RouterView } from 'vue-router'
 </template>
 
 <style scoped>
-a {max-width: 100%;}
+a {
+  max-width: 100%;
+}
+
 .logo,
 .proficon {
   margin: 0;
@@ -59,9 +61,7 @@ header {
   align-items: center;
   line-height: 1.5;
   max-height: 40px;
-  
   width: 100%;
-  z-index: 1000;
 }
 
 .dropdown {
@@ -74,14 +74,13 @@ header {
   position: absolute;
   background-color: #353535;
   min-width: 160px;
-  
+
   z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 
 nav {
   width: 100%;
@@ -114,8 +113,6 @@ nav a:first-of-type {
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
   }
-
-
 
   header .wrapper {
     display: flex;

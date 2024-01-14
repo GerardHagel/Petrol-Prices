@@ -1,55 +1,50 @@
 <template>
-    <div>
-      <h2>Login</h2>
-      <form @submit.prevent="login">
-        <label for="email">Email:</label>
-        <input v-model="email" type="email" required />
-  
-        <label for="password">Password:</label>
-        <input v-model="password" type="password" required />
-  
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  </template>
-  
-  <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        email: '',
-        password: '',
-      };
+  <div>
+    <h2>Aktualne ceny paliwa</h2><br>
+    <ul>
+      <li v-for="price in currentPrices" :key="price.id">
+        {{ price.type }}: {{ price.price }}
+      </li>
+    </ul>
+
+    <h2>Historyczne ceny paliwa</h2><br>
+    <ul>
+      <li v-for="price in historicalPrices" :key="price.id">
+        {{ price.type }}: {{ price.price }}
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      currentPrices: [],
+      historicalPrices: [],
+    };
+  },
+  mounted() {
+    this.getCurrentPrices();
+    this.getHistoricalPrices();
+  },
+  methods: {
+    async getCurrentPrices() {
+      try {
+        const response = await this.$axios.get('/api/current-prices');
+        this.currentPrices = response.data;
+      } catch (error) {
+        console.error('Błąd podczas pobierania aktualnych cen paliwa:', error);
+      }
     },
-    methods: {
-      async login() {
-        try {
-          const response = await axios.post('/api/auth/login', {
-            email: this.email,
-            password: this.password,
-          });
-  
-          // Jeśli logowanie jest udane, możesz obsłużyć odpowiedź
-          console.log('Zalogowano pomyślnie', response.data);
-  
-          // Tutaj możesz obsłużyć przekierowanie do innej strony, jeśli jest to wymagane
-        } catch (error) {
-          // W przypadku błędu wyświetl go w konsoli lub obsłuż go odpowiednio
-          console.error('Błąd logowania', error);
-        }
-      },
+    async getHistoricalPrices() {
+      try {
+        const response = await this.$axios.get('/api/historical-prices');
+        this.historicalPrices = response.data;
+      } catch (error) {
+        console.error('Błąd podczas pobierania historycznych cen paliwa:', error);
+      }
     },
-  };
-  </script>
-  
-    
-    <style scoped>
-    .faq-item {
-      margin-bottom: 20px;
-      color: white;
-    }
-    
-    </style>
-    
+  },
+};
+</script>

@@ -1,16 +1,15 @@
 <template>
     
-    
-  
+    <Admin/>
 </template>
 
 <script>
 
-//import  from '../components/.vue';
+import Admin from '../components/Admin.vue';
 
 export default {
   components: {
-    
+    Admin,
 },
 };
 </script>

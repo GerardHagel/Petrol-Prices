@@ -57,3 +57,6 @@ export default {
     }
 }
 </script>
+<style scoped>
+#map{border: 1px solid silver;min-width: 500px;}
+</style>
