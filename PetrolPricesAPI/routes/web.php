@@ -7,9 +7,9 @@ use App\Http\Controllers\FuelStationController;
 use App\Http\Controllers\FuelPricesController;
 use App\Http\Controllers\Auth\LoginController;
 
+
 Route::get('/', function () {
     return view('app');
-    return view('support');
 });
 
 
@@ -28,3 +28,16 @@ Route::post('/fuel-stations', [FuelStationController::class, 'store'])->name('fu
 Route::post('/api/fuel-stations/search', [FuelStationController::class, 'search']);
 Route::post('/submit-ticket', [SupportTicketController::class, 'submitTicket']);
 Route::get('/get-tickets', [SupportTicketController::class, 'getTickets']);
+//->name('application');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('auth/{provider}', [LoginController::class, 'redirectToProvider'])->name('to_provider');
+
+Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
+
+Route::get('/convert-currency', [CurrencyConversionController::class, 'convert']);
