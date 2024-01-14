@@ -2,24 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\FuelStation;
+use App\Models\FuelStation;
 use Illuminate\Http\Request;
+use App\Models\FuelPrice;
 
 class FuelStationController extends Controller
 {
 
     public function search(Request $request)
     {
-        // Pobierz dane z formularza
+       // dd($request->all());
+
         $location = $request->input('location');
         $fuelType = $request->input('fuel_type');
         $maxPrice = $request->input('max_price');
         $openNow = $request->input('open_now');
 
-        // Rozpocznij zapytanie do bazy danych
         $query = FuelStation::query();
 
-        // Dodaj warunki wyszukiwania
         if ($location) {
             $query->where('location', 'like', "%$location%");
         }
@@ -33,27 +33,30 @@ class FuelStationController extends Controller
         }
 
         if ($openNow) {
-            // Załóżmy, że w modelu FuelStation mamy pole 'opening_hours' w formie JSON
-            // i możemy używać funkcji 'now()' do sprawdzenia, czy stacja jest otwarta
             $query->whereJsonContains('opening_hours', ['day' => now()->format('l'), 'open' => true]);
         }
 
-        // Pobierz wyniki z bazy danych
+       // dd($query->toSql());
+
         $fuelStations = $query->get();
 
-        // Przekaż wyniki do widoku
-        return view('fuel_stations.results', compact('fuelStations'));
+
+        // Debug
+        // dd($fuelStations);
+
+        return view('results', compact('fuelStations'));
     }
 
     public function index()
     {
         $fuelStations = FuelStation::all();
 
-        return view('fuel_stations.index', compact('fuelStations'));
+        return view('index', compact('fuelStations'));
     }
 
     public function create()
     {
+      //  dd('Metoda create działa!');
         return view('fuel_stations.create');
     }
 
@@ -97,5 +100,14 @@ class FuelStationController extends Controller
         $fuelStation->delete();
 
         return redirect()->route('fuel_stations.index')->with('success', 'Fuel station deleted successfully');
+    }
+
+    public function show($id)
+    {
+        $station = FuelStation::findOrFail($id);
+        $currentPrices = $station->fuelPrices()->latest()->take(5)->get(); // Aktualne ceny (ostatnie 5)
+        $historicalPrices = $station->fuelPrices()->oldest()->take(10)->get(); // Historyczne ceny (pierwsze 10)
+
+        return view('show', compact('station', 'currentPrices', 'historicalPrices'));
     }
 }

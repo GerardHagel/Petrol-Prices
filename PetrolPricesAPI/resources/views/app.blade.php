@@ -1,14 +1,9 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ًApplication</title>
-        <style>@vite('resources/css/app.css')</style>
-    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -23,6 +18,7 @@
     <script>
         window.googleMapsApiKey = "{{ config('services.google.maps_api_key') }}";
     </script>
+
 
     </head>
     <body>
@@ -89,7 +85,33 @@
         <div id="Main">
         @vite('resources/js/Main.js')
         </div>
+        <div id="app">
+            @vite('resources/js/app.js')
+        </div>
 
+        <div id="fuel-station-search">
+            @vite('resources/js/FuelStationSearch.vue')
+        </div>
+
+        <div id="fuel-prices">
+            @vite('resources/js/FuelPrices.vue')
+        </div>
+
+        <div id="fuel-station-reviews">
+            @vite('resources/js/FuelStationReviews.vue')
+        </div>
+
+        <div id="fuel-types-info">
+            @vite('resources/js/FuelTypesInfo.vue')
+        </div>
+
+        <div id="fuel-saving-tips">
+            @vite('resources/js/FuelSavingTips.vue')
+        </div>
+
+        <div id="contact-form">
+            @vite('resources/js/ContactForm.vue')
+        </div>
         <div id="map-app">
             @vite('resources/js/map.js')
         </div>
@@ -106,5 +128,6 @@
         <script type="module" src="{{ asset('js/map.js') }}"></script>
         <script type="module" src="{{ asset('resources/js/travelCostCalculatorApp.js') }}"></script>
         <script type="module" src="{{ asset('resources/js/currencyConverterApp.js') }}"></script>
+
     </body>
 </html>
