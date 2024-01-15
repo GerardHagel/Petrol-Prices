@@ -6,6 +6,7 @@ use App\Http\Controllers\YourController;
 use App\Http\Controllers\FuelStationController;
 use App\Http\Controllers\FuelPricesController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CurrencyConversionController;
 
 
 Route::get('/', function () {
@@ -31,13 +32,17 @@ Route::get('/get-tickets', [SupportTicketController::class, 'getTickets']);
 //->name('application');
 
 
-Auth::routes();
+
+Auth::routes(['verify' => true]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('auth/{provider}', [LoginController::class, 'redirectToProvider'])->name('to_provider');
+
+Route::get('/auth/redirect/{provider}', [LoginController::class, 'redirectToProvider']);
 
 Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
 
-Route::get('/convert-currency', [CurrencyConversionController::class, 'convert']);
+Route::get('/currency-convert', [CurrencyConversionController::class, 'convert']);
+

@@ -1,5 +1,6 @@
 @import './base.css';
 
+
 .form-box {
     display: flex;
     flex-direction: column;
@@ -21,6 +22,7 @@ header{
   margin-left: 5%;
   margin-right: 5%;
   padding: rem;
+
   font-weight: normal;
 }
 
@@ -45,7 +47,6 @@ a,
 
   #app {
     display: grid;
-    
     padding: 0 2rem;
   }
 }

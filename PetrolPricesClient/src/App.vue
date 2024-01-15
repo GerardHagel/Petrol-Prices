@@ -1,5 +1,7 @@
 <script setup>
+
 import { RouterLink, RouterView } from "vue-router";
+
 </script>
 
 <template>
@@ -26,7 +28,6 @@ import { RouterLink, RouterView } from "vue-router";
         <RouterLink to="/admin">Admin</RouterLink>
       </nav>
     </div>
-
     <RouterLink to="/login">
       <div class="proficon">
         <img src="src/assets/profile-icon.png" alt="Logo" />
@@ -37,6 +38,7 @@ import { RouterLink, RouterView } from "vue-router";
 </template>
 
 <style scoped>
+
 a {
   max-width: 100%;
 }
@@ -80,13 +82,16 @@ header {
 
 .dropdown:hover .dropdown-content {
   display: block;
+
 }
 
 nav {
   width: 100%;
 
+
   text-align: center;
   margin-top: 0;
+
 }
 
 nav a.router-link-exact-active {
@@ -122,7 +127,6 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-
     font-size: 1rem;
 
     padding: 1rem 0;

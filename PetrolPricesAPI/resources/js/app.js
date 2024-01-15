@@ -70,7 +70,9 @@ app.use(router);
 
 app.component('fuel-station-reviews', FuelStationReviews); // Dodaj komponent, jeśli go jeszcze nie dodano globalnie
 
+
 app.mount('#app');
+
 
 createApp(ContactForm).use(router).mount('#contact-form');
 createApp(TicketTracker).use(router).mount('#ticket-tracker');
