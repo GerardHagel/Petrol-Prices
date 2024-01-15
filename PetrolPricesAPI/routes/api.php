@@ -30,3 +30,4 @@ Route::get('/fuel-stations/{fuelStation}/average-rating', [FuelStationReviewCont
 //Route::post('/fuel-stations/{fuelStationId}/reviews', [ReviewController::class, 'store']);
 Route::post('/fuel-stations/{fuelStationId}/reviews', 'FuelStationReviewController@store');
 Route::post('/fuel-stations/search', [FuelStationController::class, 'search']);
+Route::get('/currency-convert', [CurrencyConversionController::class, 'convert']);
