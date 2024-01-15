@@ -1,5 +1,5 @@
 <template>
-    <div class="main-box">
+    <div class="form-box">
         <h2>Formularz kontaktowy</h2>
         <form @submit.prevent="submitForm">
             <label for="name">Imię i nazwisko: </label><br>
@@ -60,10 +60,3 @@ export default {
     },
 };
 </script>
-<style scoped>
-.main-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-</style>

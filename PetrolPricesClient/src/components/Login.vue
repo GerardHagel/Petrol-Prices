@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div class="form-box">
     <h2>Login</h2>
     <form @submit.prevent="login">
-      <label for="email">Email:</label>
+      <label for="email">Email:</label><br>
       <input v-model="email" type="email" required />
 
-      <label for="password">Password:</label>
+      <label for="password"><br>Password:</label><br>
       <input v-model="password" type="password" required />
-
+      <br>
       <button type="submit">Login</button>
+      <br><RouterLink to="/register">Register</RouterLink>
+      <br><RouterLink to="/resetpassword">Reset Password</RouterLink>
     </form>
   </div>
 </template>

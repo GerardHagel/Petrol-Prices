@@ -14,7 +14,7 @@ import { RouterLink, RouterView } from "vue-router";
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <div class="dropdown">
-          <RouterLink to="/">Extras</RouterLink>
+          <RouterLink to="">Extras</RouterLink>
           <div class="dropdown-content">
             <RouterLink to="/calc">Currency Calculator</RouterLink>
             <RouterLink to="/travelCost">Travel Cost Calculator</RouterLink>

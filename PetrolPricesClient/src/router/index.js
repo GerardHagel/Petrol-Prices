@@ -8,6 +8,8 @@ import Fuels from '../views/Fuels.vue'
 import Articles from '../views/Articles.vue'
 import reviews from '../views/FuelStationReviews.vue'
 import Admin from '../views/Admin.vue'
+import Register from '../views/Register.vue'
+import ResetPassword from '../views/ResetPassword.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -25,6 +27,16 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
+    },
+    {
+      path: '/resetpassword',
+      name: 'ResetPassword',
+      component: ResetPassword
     },
     {
       path: '/calc',

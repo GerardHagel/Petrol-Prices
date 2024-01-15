@@ -1,5 +1,11 @@
 @import './base.css';
 
+.form-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 header{
   background-color: #353535;
   top: 0;

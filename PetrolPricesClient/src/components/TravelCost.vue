@@ -1,5 +1,5 @@
 <template>
-    <div class="main-box">
+    <div class="form-box">
         <h3>Kalkulator Kosztów Podróży</h3>
         <div class="txt">Dystans</div>
         <input type="number" v-model.number="distance" placeholder="Dystans (km)" />
@@ -32,10 +32,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.main-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-</style>
+
