@@ -23,14 +23,11 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-<<<<<<< Updated upstream
-=======
     <RouterLink to="/login">
       <div class="proficon">
         <img src="@/assets/profile-icon.png" alt="Logo" />
       </div>
     </RouterLink>
->>>>>>> Stashed changes
   </header>
 
   <RouterView />
