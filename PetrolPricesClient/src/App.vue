@@ -1,54 +1,99 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+
+import { RouterLink, RouterView } from "vue-router";
+
 </script>
 
 <template>
   <header>
-<<<<<<< Updated upstream
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-=======
     <RouterLink to="/">
       <div class="logo">
         <img src="@/assets/logo.png" alt="Logo" />
       </div>
     </RouterLink>
->>>>>>> Stashed changes
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <div class="dropdown">
+          <RouterLink to="">Extras</RouterLink>
+          <div class="dropdown-content">
+            <RouterLink to="/calc">Currency Calculator</RouterLink>
+            <RouterLink to="/travelCost">Travel Cost Calculator</RouterLink>
+            <RouterLink to="/fuels">Fuels</RouterLink>
+            <RouterLink to="/articles">Articles</RouterLink>
+          </div>
+        </div>
+        <RouterLink to="/faq">FAQ</RouterLink>
+        <RouterLink to="/admin">Admin</RouterLink>
       </nav>
     </div>
     <RouterLink to="/login">
       <div class="proficon">
+
         <img src="@/assets/profile-icon.png" alt="Logo" />
       </div>
     </RouterLink>
   </header>
-
   <RouterView />
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+
+a {
+  max-width: 100%;
 }
 
-.logo {
+.logo,
+.proficon {
+  margin: 0;
+  padding: 0;
+}
+
+.logo img,
+.proficon img {
+  max-height: 40px;
+  height: auto;
+}
+
+header {
+  position: fixed;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
+  max-height: 40px;
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #353535;
+  min-width: 160px;
+
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
   display: block;
-  margin: 0 auto 2rem;
+
 }
 
 nav {
   width: 100%;
-  font-size: 12px;
+
+
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 0;
+
 }
 
 nav a.router-link-exact-active {
@@ -76,10 +121,6 @@ nav a:first-of-type {
     padding-right: calc(var(--section-gap) / 2);
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
   header .wrapper {
     display: flex;
     place-items: flex-start;
@@ -88,7 +129,6 @@ nav a:first-of-type {
 
   nav {
     text-align: left;
-    margin-left: -1rem;
     font-size: 1rem;
 
     padding: 1rem 0;
