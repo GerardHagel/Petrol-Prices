@@ -5,7 +5,15 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
+<<<<<<< Updated upstream
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+=======
+    <RouterLink to="/">
+      <div class="logo">
+        <img src="@/assets/logo.png" alt="Logo" />
+      </div>
+    </RouterLink>
+>>>>>>> Stashed changes
 
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
@@ -15,6 +23,14 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
+<<<<<<< Updated upstream
+=======
+    <RouterLink to="/login">
+      <div class="proficon">
+        <img src="@/assets/profile-icon.png" alt="Logo" />
+      </div>
+    </RouterLink>
+>>>>>>> Stashed changes
   </header>
 
   <RouterView />

@@ -31,3 +31,10 @@ Route::get('/fuel-stations/{fuelStation}/average-rating', [FuelStationReviewCont
 Route::post('/fuel-stations/{fuelStationId}/reviews', 'FuelStationReviewController@store');
 Route::post('/fuel-stations/search', [FuelStationController::class, 'search']);
 Route::get('/currency-convert', [CurrencyConversionController::class, 'convert']);
+<<<<<<< Updated upstream
+=======
+
+Route::get('/get-api-key', function () {
+    return response()->json(['apiKey' => env('GOOGLE_MAPS_API_KEY')]);
+});
+>>>>>>> Stashed changes

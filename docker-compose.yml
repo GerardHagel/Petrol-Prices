@@ -13,7 +13,7 @@ services:
     networks:
       - lahmi
     ports:
-      - 8080:8080
+      - "8080:8080"
 
   client:
     build:
@@ -26,32 +26,30 @@ services:
     networks:
       - lahmi
     ports:
-      - 3000:80
+      - "3000:80"
 
   db:
     image: mysql:latest
-    container_name: db
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "3306:3306"
     environment:
-      MYSQL_DATABASE: db
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: user
-      MYSQL_USER: pass
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
+      - MYSQL_DATABASE=${DB_DATABASE:-petrol-prices}
+      - MYSQL_USER=${DB_USERNAME:-user}
+      - MYSQL_PASSWORD=${DB_PASSWORD:-pass}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD:-root}
 
     volumes:
       - dbdata:/var/lib/mysql
       - ./docker-compose/mysql/my.cnf:/etc/mysql/my.cnf
       - ./docker-compose/mysql/init:/docker-entrypoint-initdb.d
-    ports:
-      - 3306:3306
     networks:
       - lahmi
 
   nginx:
     image: nginx:alpine
     ports:
-      - 8005:80
+      - "8005:80"
     depends_on:
       - db
       - api
