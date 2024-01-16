@@ -56,11 +56,11 @@ class LoginController extends Controller
         }
 
         return redirect()->route('login');
-        
+
     }
 
     /**
-     * Callback for provider of Social Login 
+     * Callback for provider of Social Login
      * @param mixed $provider
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector|mixed
      */
@@ -85,7 +85,7 @@ class LoginController extends Controller
 
     /**
      * find an existing User/SocialAuth User, otherwise create one.
-     * If user logs with same email from different providers, 
+     * If user logs with same email from different providers,
      * email should be modifed cause email in user table is unique.
      * @param mixed $oauthUser
      * @param mixed $provider
@@ -109,7 +109,7 @@ class LoginController extends Controller
                 //check User only for email if exist
                 $user = User::whereEmail($oauthUser->getEmail())->first();
 
-                //modify email if exist cause it should be unique
+                //modify email if exist be it should be unique
                 $email = (!$user) ? $oauthUser->getEmail() : $provider.'_'.$oauthUser->getEmail();
 
                 $user = User::create([

@@ -78,7 +78,7 @@
                                     <div class="col-md-6">
                                         <a
                                             title="Mit GitHub-Account einloggen!"
-                                            href="{{ route('to_provider', ['provider'=> 'google']) }}">
+                                            href="{{ route('redirectToProvider', ['provider'=> 'google']) }}">
                                             <img width="100" src="https://newsinitiative.withgoogle.com/hownewsworks/static/images/products-googlesearch.png"></a>
 
                                 </div>
