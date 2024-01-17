@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from "vue-router";
   <header>
     <RouterLink to="/">
       <div class="logo">
-        <img src="src/assets/logo.png" alt="Logo" />
+        <img src="@/assets/logo.png" alt="Logo" />
       </div>
     </RouterLink>
 
@@ -30,7 +30,8 @@ import { RouterLink, RouterView } from "vue-router";
     </div>
     <RouterLink to="/login">
       <div class="proficon">
-        <img src="src/assets/profile-icon.png" alt="Logo" />
+
+        <img src="@/assets/profile-icon.png" alt="Logo" />
       </div>
     </RouterLink>
   </header>

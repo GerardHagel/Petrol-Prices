@@ -1,21 +1,19 @@
-
 <template>
-  <div class="form-box">
-    <h2>Kalkulator Walutowy</h2>
-    <!-- Formularz do wprowadzenia danych -->
-    <input v-model="amount" type="number" placeholder="Kwota" />
+  <div>
+    <h3>Kalkulator Walutowy</h3>
+    <input type="number" v-model.number="amount" placeholder="Kwota">
     <select v-model="fromCurrency">
       <option v-for="currency in currencies" :key="currency" :value="currency">{{ currency }}</option>
     </select>
-    <span>&#9660;</span>
     <select v-model="toCurrency">
       <option v-for="currency in currencies" :key="currency" :value="currency">{{ currency }}</option>
     </select>
     <button @click="convertCurrency">Konwertuj</button>
-
-    <!-- Wyświetlanie wyniku konwersji -->
     <div v-if="convertedAmount !== null">
       Skonwertowana kwota: {{ convertedAmount.toFixed(2) }} {{ toCurrency }}
+    </div>
+    <div v-if="errorMessage">
+      Błąd: {{ errorMessage }}
     </div>
   </div>
 </template>
@@ -31,30 +29,22 @@ export default {
       toCurrency: 'EUR',
       convertedAmount: null,
       currencies: ['USD', 'EUR', 'PLN'], // Lista dostępnych walut
+      errorMessage: '', // Dodano miejsce na przechowywanie komunikatu o błędzie
     };
   },
   methods: {
-    async convertCurrency() {
-      try {
-        const response = await axios.get('/convert-currency', {
-          params: {
-            from: this.fromCurrency,
-            to: this.toCurrency,
-            amount: this.amount,
-          },
-        });
-
-        // Przypisanie wyniku konwersji
+    convertCurrency() {
+      // Poprawka: Użycie backticków do interpolacji ciągu znaków
+      const apiUrl = `http://localhost:8080/api/currency-convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`;
+      axios.get(apiUrl).then(response => {
         this.convertedAmount = response.data.convertedAmount;
-      } catch (error) {
-        console.error('Błąd podczas konwersji waluty:', error);
-        // Możesz dodać obsługę błędów, np. wyświetlanie komunikatu użytkownikowi
-      }
+        this.errorMessage = ''; // Wyczyszczenie komunikatu o błędzie po udanej konwersji
+      }).catch(error => {
+        console.error('Błąd konwersji waluty:', error);
+        // Ustawienie komunikatu o błędzie
+        this.errorMessage = 'Nie można przeprowadzić konwersji waluty.';
+      });
     },
   },
 };
-
 </script>
-<style scoped>
-div{float: left;width: 100%; margin: 5%;}
-</style>

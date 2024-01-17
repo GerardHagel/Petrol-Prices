@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\FuelStation;
 use Illuminate\Http\Request;
-use App\Models\FuelPrice;
 
 class FuelStationController extends Controller
 {
-
     public function search(Request $request)
     {
-       // dd($request->all());
-
         $location = $request->input('location');
         $fuelType = $request->input('fuel_type');
         $maxPrice = $request->input('max_price');
@@ -33,8 +29,15 @@ class FuelStationController extends Controller
         }
 
         if ($openNow) {
+            // Assuming 'opening_hours' is a JSON field and contains a structure to determine if open now
+            // This logic might need to be adjusted based on your actual data structure
             $query->whereJsonContains('opening_hours', ['day' => now()->format('l'), 'open' => true]);
         }
+
+        $fuelStations = $query->get();
+
+        return response()->json($fuelStations);
+
 
        // dd($query->toSql());
 

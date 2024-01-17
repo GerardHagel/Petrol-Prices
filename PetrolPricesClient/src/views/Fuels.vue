@@ -6,7 +6,8 @@
 
 <script>
 
-import Fuels from '../components/fuels.vue';
+import Fuels from '../components/Fuels.vue';
+
 import fuelTypes from '../components/FuelTypesInfo.vue';
 
 export default {

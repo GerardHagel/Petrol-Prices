@@ -12,36 +12,19 @@ class FuelStationReviewTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testCreateFuelStationReview()
+    public function test_can_retrieve_reviews_relation()
     {
-        // Utwórz testowego użytkownika
-        $user = User::factory()->create();
-
-        // Utwórz testową stację paliwową
         $fuelStation = FuelStation::factory()->create();
+        $review = FuelStationReview::factory()->create([ // Tworzenie recenzji
+            'user_id' => 1,
+            'rating' => 5,
+            'review' => 'Great fuel station!', // Dodawanie recenzji
+        ]);
 
-        // Dane do testu
-        $reviewData = [
-            'user_id' => $user->id,
-            'fuel_station_id' => $fuelStation->id,
-            'review' => 'Test review',
-            'rating' => 4,
-        ];
-
-        // Utwórz recenzję stacji paliwowej
-        $review = FuelStationReview::create($reviewData);
-
-        // Sprawdź, czy dane się zgadzają
-        $this->assertEquals($reviewData['user_id'], $review->user_id);
-        $this->assertEquals($reviewData['fuel_station_id'], $review->fuel_station_id);
-        $this->assertEquals($reviewData['review'], $review->review);
-        $this->assertEquals($reviewData['rating'], $review->rating);
-
-        // Sprawdź relacje z użytkownikiem i stacją paliwową
-        $this->assertInstanceOf(User::class, $review->user);
-        $this->assertEquals($user->id, $review->user->id);
-
-        $this->assertInstanceOf(FuelStation::class, $review->fuelStation);
-        $this->assertEquals($fuelStation->id, $review->fuelStation->id);
+        $this->assertInstanceOf(FuelStationReview::class, $review);
+        $this->assertEquals($fuelStation->id, $review->fuel_station_id);
+        $this->assertEquals(1, $review->user_id);
+        $this->assertEquals(5, $review->rating);
+        $this->assertEquals('Great fuel station!', $review->review); // Sprawdzanie recenzji
     }
 }

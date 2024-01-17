@@ -19,7 +19,7 @@ class CreateFuelStationReviewsTable extends Migration
             $table->foreign('fuel_station_id')->references('id')->on('fuel_stations')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('review');
+            $table->text('review')->default(''); // Dodaj domyślną wartość
             $table->unsignedTinyInteger('rating');
             $table->timestamps();
         });

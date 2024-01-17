@@ -12,6 +12,9 @@
         <div v-if="convertedAmount !== null">
             Skonwertowana kwota: {{ convertedAmount.toFixed(2) }} {{ toCurrency }}
         </div>
+        <div v-if="errorMessage">
+            Błąd: {{ errorMessage }}
+        </div>
     </div>
 </template>
 
@@ -26,18 +29,20 @@ export default {
             toCurrency: 'EUR',
             convertedAmount: null,
             currencies: ['USD', 'EUR', 'PLN'], // Lista dostępnych walut
+            errorMessage: '', // Dodano miejsce na przechowywanie komunikatu o błędzie
         };
     },
     methods: {
         convertCurrency() {
-            // Zmiana URL na endpoint Laravel
-            const apiUrl = `/api/convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`;
-
+            // Poprawka: Użycie backticków do interpolacji ciągu znaków
+            const apiUrl = `/api/currency-convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`;
             axios.get(apiUrl).then(response => {
                 this.convertedAmount = response.data.convertedAmount;
+                this.errorMessage = ''; // Wyczyszczenie komunikatu o błędzie po udanej konwersji
             }).catch(error => {
                 console.error('Błąd konwersji waluty:', error);
-                // Możesz dodać obsługę błędów, np. wyświetlanie komunikatu użytkownikowi
+                // Ustawienie komunikatu o błędzie
+                this.errorMessage = 'Nie można przeprowadzić konwersji waluty.';
             });
         },
     },

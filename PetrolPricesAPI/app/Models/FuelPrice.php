@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class FuelPrice extends Model
 {
-    protected $fillable = ['fuel_station_id', 'fuel_type', 'price', 'date'];
+    use HasFactory;
 
-    //use HasFactory;
+    protected $fillable = [
+        'fuel_type',
+        'price',
+        'fuel_station_id',
+    ];
 
     public function fuelStation()
     {
         return $this->belongsTo(FuelStation::class);
     }
-
 }

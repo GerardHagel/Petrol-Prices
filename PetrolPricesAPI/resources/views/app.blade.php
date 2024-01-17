@@ -125,9 +125,5 @@
             @vite('resources/js/currencyconverter.js')
         </div>
 
-        <script type="module" src="{{ asset('js/map.js') }}"></script>
-        <script type="module" src="{{ asset('resources/js/travelCostCalculatorApp.js') }}"></script>
-        <script type="module" src="{{ asset('resources/js/currencyConverterApp.js') }}"></script>
-
     </body>
 </html>
