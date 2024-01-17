@@ -1,39 +1,63 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit\Models;
 
-use App\Models\FuelStation;
-use App\Models\FuelPrice;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
+use App\Models\FuelPrice;
+use App\Models\FuelStation;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FuelStationTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testFuelStation()
+    public function test_can_create_fuel_station()
     {
-        // Tworzenie obiektu FuelStation
-        $fuelStation = FuelStation::factory()->create();
+        $fuelStationData = [
+            'name' => 'Example Fuel Station',
+            'location' => '123 Main St, City',
+            'fuel_type' => 'Gasoline',
+            'price' => 2.50,
+            'opening_hours' => 'Mon-Fri: 8:00 AM - 6:00 PM',
+        ];
 
-        // Tworzenie obiektu FuelPrice i przypisywanie go do FuelStation
-        $fuelPrice = \Database\Factories\FuelPricesFactory::new()->create([
-            'fuel_station_id' => $fuelStation->id,
-            'fuel_type' => 'Diesel',
-            'price' => '2.50',
-            'date' => now(),
+        $fuelStation = FuelStation::create($fuelStationData);
+
+        $this->assertInstanceOf(FuelStation::class, $fuelStation);
+        $this->assertEquals($fuelStationData['name'], $fuelStation->name);
+        $this->assertEquals($fuelStationData['location'], $fuelStation->location);
+        $this->assertEquals($fuelStationData['fuel_type'], $fuelStation->fuel_type);
+        $this->assertEquals($fuelStationData['price'], $fuelStation->price);
+        $this->assertEquals($fuelStationData['opening_hours'], $fuelStation->opening_hours);
+    }
+
+    public function test_can_retrieve_fuel_prices_relation()
+    {
+        $fuelStation = FuelStation::factory()->create();
+        $fuelPrice = $fuelStation->fuelPrices()->create([
+            'fuel_type' => 'Gasoline',
+            'price' => 2.50,
         ]);
 
-        // Pobieranie obiektu FuelStation z bazy danych
-        $retrievedFuelStation = FuelStation::find($fuelStation->id);
+        $this->assertInstanceOf(FuelPrice::class, $fuelPrice);
+        $this->assertEquals($fuelStation->id, $fuelPrice->fuel_station_id);
+        $this->assertEquals('Gasoline', $fuelPrice->fuel_type);
+        $this->assertEquals(2.50, $fuelPrice->price);
+    }
 
-        // Sprawdzanie, czy FuelStation ma przypisaną instancję FuelPrice
-        $this->assertInstanceOf(FuelPrice::class, $retrievedFuelStation->fuelPrices->first());
+    public function test_can_retrieve_reviews_relation()
+    {
+        $fuelStation = FuelStation::factory()->create();
+        $review = $fuelStation->reviews()->create([
+            'user_id' => 1,
+            'rating' => 5,
+            'comment' => 'Great fuel station!',
+        ]);
 
-        // Dodatkowe asercje, które chcesz przetestować dla FuelStation
-        $this->assertEquals('Diesel', $retrievedFuelStation->fuelPrices->first()->fuel_type);
-        $this->assertEquals('2.50', $retrievedFuelStation->fuelPrices->first()->price);
+        $this->assertInstanceOf(FuelStationReview::class, $review);
+        $this->assertEquals($fuelStation->id, $review->fuel_station_id);
+        $this->assertEquals(1, $review->user_id);
+        $this->assertEquals(5, $review->rating);
+        $this->assertEquals('Great fuel station!', $review->comment);
     }
 }
-
-

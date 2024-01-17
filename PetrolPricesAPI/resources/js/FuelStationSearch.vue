@@ -3,7 +3,7 @@
         <form @submit.prevent="searchFuelStations">
             <label for="location">Lokalizacja:</label>
             <input v-model="searchCriteria.location" type="text" id="location">
-<br> <br>
+            <br><br>
             <label for="fuelType">Rodzaj Paliwa:</label>
             <input v-model="searchCriteria.fuelType" type="text" id="fuelType">
 
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -37,40 +39,19 @@ export default {
             fuelStations: [],
         };
     },
-    /*   methods: {
-        searchFuelStations() {
+    methods: {
+        async searchFuelStations() {
             if (!this.searchCriteria.location && !this.searchCriteria.fuelType) {
-                console.error('Błąd: Wprowadź lokalizację lub rodzaj paliwa.');
+                alert('Błąd: Wprowadź lokalizację lub rodzaj paliwa.');
                 return;
             }
 
-            console.log('Search criteria:', this.searchCriteria);
-
-            axios.post("/api/fuel-stations/search", this.searchCriteria)
-                .then(response => {
-                    this.fuelStations = response.data;
-                })
-                .catch(error => {
-                    console.error('Błąd podczas wysyłania zapytania', error);
-                });
-        },
-    },
-};
-
-  */
-    methods: {
-        async searchFuelStations() {
             try {
-                // Utwórz zmienną z odpowiedzi na żądanie POST
                 const response = await axios.post(`/api/fuel-stations/search`, this.searchCriteria);
-
-                // Zrób coś z odpowiedzią (jeśli potrzebujesz)
-                console.log(response.data);
-
-                // Dalsza część kodu, np. przypisanie danych do this.fuelStations
+                this.fuelStations = response.data;
             } catch (error) {
-                // Obsłuż błąd, jeśli wystąpił
-                console.error('Błąd podczas wysyłania zapytania POST:', error);
+                console.error('Błąd podczas wysyłania zapytania:', error);
+                alert('Błąd podczas wysyłania zapytania. Sprawdź konsolę dla szczegółów.');
             }
         },
     },

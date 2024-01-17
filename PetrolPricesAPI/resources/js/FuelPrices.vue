@@ -2,42 +2,39 @@
     <div>
         <h2>Aktualne Ceny Paliw</h2>
         <ul>
-            <li v-for="price in currentPrices" :key="price.id">
-                {{ price.fuel_type }}: {{ price.price }} zł ({{ price.date }})
+            <li v-for="(price, index) in currentPrices" :key="index">
+                {{ formatPrice(price.price) }} zł
             </li>
         </ul>
-
-        <h2>Historyczne Ceny Paliw</h2>
-        <ul>
-            <li v-for="price in historicalPrices" :key="price.id">
-                {{ price.fuel_type }}: {{ price.price }} zł ({{ price.date }})
-            </li>
-        </ul>
+        <p v-if="currentPrices.length === 0">Brak danych o cenach paliw.</p>
     </div>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
             currentPrices: [],
-            historicalPrices: [],
         };
     },
+    async mounted() {
+        this.fetchPrices();
+    },
     methods: {
-        async mounted() {
-            await this.fetchCurrentPrices();
-            await this.fetchHistoricalPrices();
+        async fetchPrices() {
+            try {
+                const response = await axios.get('api/current-prices');
+                this.currentPrices = response.data;
+            } catch (error) {
+                console.error(error);
+            }
         },
-
-        async fetchCurrentPrices() {
-            this.currentPrices = await axios.get('/api/current-prices').then(response => response.data);
-        },
-
-        async fetchHistoricalPrices() {
-            this.historicalPrices = await axios.get('/api/historical-prices').then(response => response.data);
+        formatPrice(price) {
+            // Dodaj dowolną logikę formatowania ceny tutaj, jeśli jest to potrzebne
+            return parseFloat(price).toFixed(2); // Zaokrąglanie do dwóch miejsc po przecinku
         },
     },
 };
 </script>
-

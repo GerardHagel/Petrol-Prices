@@ -1,40 +1,55 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Tests\TestCase;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Http;
 
 class CurrencyConversionControllerTest extends TestCase
 {
-    use RefreshDatabase;
-
-    /** @test */
-    public function it_converts_currency_successfully()
+    public function test_currency_conversion()
     {
+        // Przykładowe dane do testu
+        $fromCurrency = 'USD';
+        $toCurrency = 'EUR';
+        $amount = 100;
+        $exchangeRate = 0.85; // Przykładowa stawka wymiany
+
+        // Symulowanie odpowiedzi z API kursów walut
         Http::fake([
-            'https://api.exchangerate-api.com/v4/latest/USD*' => Http::response([
-                'rates' => ['EUR' => 0.85]
-            ], 200)
+            "https://api.exchangerate-api.com/v4/latest/{$fromCurrency}" => Http::response([
+                'rates' => [
+                    $toCurrency => $exchangeRate,
+                ],
+            ]),
         ]);
 
-        $response = $this->get('/currency-convert?from=USD&to=EUR&amount=100');
-
-        $response->assertOk();
-        $response->assertJson(['convertedAmount' => 85.0]);
+        // Wywołanie kontrolera i sprawdzenie odpowiedzi
+        $response = $this->get("/currency-convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
+        $response->assertStatus(200)
+            ->assertJson([
+                'convertedAmount' => $amount * $exchangeRate,
+            ]);
     }
 
-    /** @test */
-    public function it_returns_an_error_if_conversion_fails()
+    public function test_invalid_currency_conversion()
     {
+        // Przykładowe dane do testu
+        $fromCurrency = 'USD';
+        $toCurrency = 'XYZ'; // Nieznana waluta
+        $amount = 100;
+
+        // Symulowanie nieudanej odpowiedzi z API kursów walut
         Http::fake([
-            'https://api.exchangerate-api.com/v4/latest/USD*' => Http::response(null, 500)
+            "https://api.exchangerate-api.com/v4/latest/{$fromCurrency}" => Http::response([], 500),
         ]);
 
-        $response = $this->get('/currency-convert?from=USD&to=EUR&amount=100');
-
-        $response->assertStatus(500);
-        $response->assertJson(['error' => 'Nie można przeprowadzić konwersji waluty.']);
+        // Wywołanie kontrolera i sprawdzenie odpowiedzi
+        $response = $this->get("/convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
+        $response->assertStatus(500)
+            ->assertJson([
+                'error' => 'Nie można przeprowadzić konwersji waluty.',
+            ]);
     }
 }

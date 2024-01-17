@@ -21,16 +21,32 @@ Route::get('/', function () {
 Route::get('/historical-prices', [FuelPricesController::class, 'getHistoricalPrices']);
 Route::get('/current-prices', [FuelPricesController::class, 'getCurrentPrices']);
 Route::get('/results', [FuelStationController::class, 'search'])->name('fuel-stations.search');
-Route::get('/fuel-stations/{id}', [FuelStationController::class, 'show'])->name('fuel-stations.show');
-Route::get('/fuel-stations', [FuelStationController::class, 'index'])->name('fuel-stations.index');
-//Route::get('/fuel-stations/create', [FuelStationController::class, 'create'])->name('fuel_stations.create');
-Route::get('/fuel-stations/create', 'FuelStationController@create')->name('fuel_stations.create');
+
+Route::get('/fuel-stations', [FuelStationController::class, 'index'])->name('fuel_stations.index');
+
+
+Route::get('/fuel-stations/create', [FuelStationController::class, 'create'])->name('fuel_stations.create');
+
+
 Route::post('/fuel-stations', [FuelStationController::class, 'store'])->name('fuel_stations.store');
+
+
+Route::get('/fuel-stations/{fuelStation}/edit', [FuelStationController::class, 'edit'])->name('fuel_stations.edit');
+
+
+Route::put('/fuel-stations/{fuelStation}', [FuelStationController::class, 'update'])->name('fuel_stations.update');
+
+
+Route::delete('/fuel-stations/{fuelStation}', [FuelStationController::class, 'destroy'])->name('fuel_stations.destroy');
+
+
+Route::get('/fuel-stations/{id}', [FuelStationController::class, 'show'])->name('fuel_stations.show');
+
+
 
 
 //Route::post('/api/fuel-stations/search', 'FuelStationController@search');
 //Route::post('/fuel-stations/search', 'FuelStationController@search')->name('fuel-stations.search');
-Route::post('/api/fuel-stations/search', [FuelStationController::class, 'search']);
 Route::post('/submit-ticket', [SupportTicketController::class, 'submitTicket']);
 Route::get('/get-tickets', [SupportTicketController::class, 'getTickets']);
 //->name('application');
@@ -44,7 +60,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-Route::get('/auth/redirect/{provider}', [LoginController::class, 'redirectToProvider'])->name('redirectToProvider');;
+Route::get('/auth/redirect/{provider}', [LoginController::class, 'redirectToProvider'])->name('redirectToProvider');
 
 Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderCallback']);
 

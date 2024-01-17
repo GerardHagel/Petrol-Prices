@@ -1,75 +1,37 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit\Controllers;
 
-use App\Models\FuelStation;
-use App\Models\FuelPrice;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use Database\Factories\FuelPricesFactory;
+use App\Models\FuelStation;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FuelPricesControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
-    public function testCurrentPrices()
+    public function test_get_current_prices()
     {
-        // Dodaj testową stację paliw przed dodaniem ceny paliw
-        $fuelStation = FuelStation::factory()->create();
+        // Tworzenie kilku przykładowych stacji paliw w bazie danych
+        FuelStation::factory()->create([
+            'fuel_type' => 'Gasoline',
+            'price' => 2.50,
+        ]);
 
-        // Dodaj testową cenę paliw z użyciem fuel_station_id utworzonej wcześniej stacji
-        FuelPricesFactory::new(['fuel_station_id' => $fuelStation->id])->create();
+        FuelStation::factory()->create([
+            'fuel_type' => 'Diesel',
+            'price' => 2.80,
+        ]);
 
-        $response = $this->get('http://localhost:8000/current-prices');
+        // Wywołanie akcji kontrolera
+        $response = $this->get('/current-prices');
 
+        // Sprawdzanie, czy odpowiedź jest poprawna
         $response->assertStatus(200);
 
- //       $response->assertJson(['data' => true]);
-
-        // Sprawdź, czy odpowiedź zawiera dane cen paliw
-        $response->assertJsonCount(1, '*.id'); // Sprawdź, czy jest co najmniej jedna cena paliw
-
-// Dla bardziej szczegółowego sprawdzenia, możesz użyć assertJsonStructure
-        $response->assertJsonStructure([
-            '*' => [
-                'id',
-                'fuel_station_id',
-                'fuel_type',
-                'price',
-                'date',
-                'created_at',
-                'updated_at',
-            ],
-        ]);
-    }
-
-    public function testHistoricalPrices()
-    {
-        // Dodaj testowe ceny paliw w przeszłości
-        $fuelStation = FuelStation::factory()->create();
-
-        // Dodaj testową cenę paliw z użyciem fuel_station_id utworzonej wcześniej stacji
-        FuelPricesFactory::new(['fuel_station_id' => $fuelStation->id, 'date' => now()->subDays(2)])->create();
-
-        $response = $this->get('http://localhost:8000/historical-prices');
-
-        $response->assertStatus(200);
-
-        // Sprawdź, czy odpowiedź zawiera dane cen paliw
-        $response->assertJsonCount(1, '*.id'); // Sprawdź, czy jest co najmniej jedna cena paliw
-
-// Dla bardziej szczegółowego sprawdzenia, możesz użyć assertJsonStructure
-        $response->assertJsonStructure([
-            '*' => [
-                'id',
-                'fuel_station_id',
-                'fuel_type',
-                'price',
-                'date',
-                'created_at',
-                'updated_at',
-            ],
-        ]);
+        // Sprawdzanie, czy odpowiedź zawiera oczekiwane dane
+        $response->assertJsonCount(2); // Oczekujemy dwóch cen paliw
+        $response->assertJsonFragment(['fuel_type' => 'Gasoline', 'price' => 2.50]);
+        $response->assertJsonFragment(['fuel_type' => 'Diesel', 'price' => 2.80]);
     }
 }

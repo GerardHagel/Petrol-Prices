@@ -2,20 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FuelPrice;
-use Illuminate\Http\Request;
+use App\Models\FuelStation;
+use Illuminate\Http\Response;
 
 class FuelPricesController extends Controller
 {
+    /**
+     * Fetch and return the current prices of fuel from the FuelStation table.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getCurrentPrices()
     {
-        $currentPrices = FuelPrice::where('date', '>=', now())->get();
+        // Select only the fuel_type and price from each FuelStation record
+        $currentPrices = FuelStation::select('fuel_type', 'price')->get();
+
+        // Return the fetched data as JSON
         return response()->json($currentPrices);
     }
 
-    public function getHistoricalPrices()
-    {
-        $historicalPrices = FuelPrice::where('date', '<', now())->get();
-        return response()->json($historicalPrices);
-    }
+    // You can add other methods here if needed
 }

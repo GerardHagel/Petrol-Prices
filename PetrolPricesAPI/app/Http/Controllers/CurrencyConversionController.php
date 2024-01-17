@@ -14,7 +14,9 @@ class CurrencyConversionController extends Controller
         $amount = $request->query('amount');
 
         $apiKey = env('EXCHANGE_RATE_API_KEY');
-        $response = Http::get("https://api.exchangerate-api.com/v4/latest/{$fromCurrency}?apiKey={$apiKey}");
+        $response = Http::get("https://api.exchangerate-api.com/v4/latest/{$fromCurrency}", [
+            'apiKey' => $apiKey
+        ]);
 
         if ($response->successful()) {
             $rate = $response->json()['rates'][$toCurrency] ?? null;

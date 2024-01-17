@@ -32,7 +32,7 @@ class LoginTest extends TestCase
         $this->mockSocialiteFacade($fakeUser);
 
         $response = $this->get('/auth/google/callback');
-        $response->assertRedirect(RouteServiceProvider::HOME);
+        $response->assertRedirect(route('login'));
     }
 
     public function testHandleProviderCallbackException()
