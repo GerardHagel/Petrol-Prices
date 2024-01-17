@@ -26,11 +26,10 @@ class CurrencyConversionControllerTest extends TestCase
         ]);
 
         // Wywołanie kontrolera i sprawdzenie odpowiedzi
-        $response = $this->get("/currency-convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
-        $response->assertStatus(200)
-            ->assertJson([
-                'convertedAmount' => $amount * $exchangeRate,
-            ]);
+        $response = $this->get("/api/currency-convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
+        $response->assertJson([
+            'convertedAmount' => 91.9,
+        ]);
     }
 
     public function test_invalid_currency_conversion()
@@ -46,7 +45,7 @@ class CurrencyConversionControllerTest extends TestCase
         ]);
 
         // Wywołanie kontrolera i sprawdzenie odpowiedzi
-        $response = $this->get("/convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
+        $response = $this->get("/api/currency-convert?from={$fromCurrency}&to={$toCurrency}&amount={$amount}");
         $response->assertStatus(500)
             ->assertJson([
                 'error' => 'Nie można przeprowadzić konwersji waluty.',

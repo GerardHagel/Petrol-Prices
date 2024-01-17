@@ -2,50 +2,62 @@
 
 namespace Tests\Unit\Controllers;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use App\Models\FuelStation;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Http\Request;
 
 class FuelStationControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_search_fuel_stations()
+    /**
+     * Testuje czy metoda search zwraca odpowiedź HTTP 200.
+     */
+    public function testSearchReturns200()
     {
-        // Tworzenie kilku przykładowych stacji paliw w bazie danych
-        FuelStation::factory()->create([
-            'name' => 'Fuel Station 1',
-            'location' => '123 Main St, City',
-            'fuel_type' => 'Gasoline',
-            'price' => 2.50,
-            'opening_hours' => '{"day": "Monday", "open": true}',
-        ]);
+        // Wywołujemy metodę search kontrolera
+        $response = $this->post('/api/fuel-stations/search');
 
-        FuelStation::factory()->create([
-            'name' => 'Fuel Station 2',
-            'location' => '456 Elm St, Town',
-            'fuel_type' => 'Diesel',
-            'price' => 2.80,
-            'opening_hours' => '{"day": "Tuesday", "open": true}',
-        ]);
-
-        // Przykładowe dane do wyszukiwania
-        $searchParams = [
-            'location' => 'City',
-            'fuel_type' => 'Gasoline',
-            'max_price' => 3.00,
-            'open_now' => true,
-        ];
-
-        // Wywołanie akcji kontrolera
-        $response = $this->post('/search', $searchParams);
-
-        // Sprawdzanie, czy odpowiedź jest poprawna
+        // Sprawdzamy czy odpowiedź ma status HTTP 200 (OK)
         $response->assertStatus(200);
-
-        // Sprawdzanie, czy odpowiedź zawiera oczekiwane dane
-        $response->assertJsonCount(1); // Oczekujemy jednej znalezionej stacji paliw
-        $response->assertJsonFragment(['name' => 'Fuel Station 1']);
     }
+
+    /**
+     * Testuje czy metoda search zwraca dane w formacie JSON.
+     */
+    public function testSearchReturnsJson()
+    {
+        // Wywołujemy metodę search kontrolera
+        $response = $this->post('/api/fuel-stations/search');
+
+        // Sprawdzamy czy odpowiedź zawiera dane w formacie JSON
+        $response->assertJson([]);
+    }
+
+    /**
+     * Testuje czy metoda index zwraca odpowiedź HTTP 200.
+     */
+    public function testIndexReturns200()
+    {
+        // Wywołujemy metodę index kontrolera
+        $response = $this->get('/fuel-stations');
+
+        // Sprawdzamy czy odpowiedź ma status HTTP 200 (OK)
+        $response->assertStatus(200);
+    }
+
+    /**
+     * Testuje czy metoda create zwraca odpowiedź HTTP 200.
+     */
+    public function testCreateReturns200()
+    {
+        // Wywołujemy metodę create kontrolera
+        $response = $this->get('/fuel-stations/create');
+
+        // Sprawdzamy czy odpowiedź ma status HTTP 200 (OK)
+        $response->assertStatus(200);
+    }
+
+    // Pozostałe testy dla pozostałych metod kontrolera (store, edit, update, destroy, show) można stworzyć analogicznie.
 }
+

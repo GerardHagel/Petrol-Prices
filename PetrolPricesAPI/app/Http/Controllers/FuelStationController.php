@@ -36,20 +36,9 @@ class FuelStationController extends Controller
 
         $fuelStations = $query->get();
 
+        // Return a JSON response for the API
         return response()->json($fuelStations);
-
-
-       // dd($query->toSql());
-
-        $fuelStations = $query->get();
-
-
-        // Debug
-        // dd($fuelStations);
-
-        return view('results', compact('fuelStations'));
     }
-
     public function index()
     {
         $fuelStations = FuelStation::all();

@@ -14,17 +14,24 @@ class FuelStationReviewTest extends TestCase
 
     public function test_can_retrieve_reviews_relation()
     {
+        // Create a fuel station
         $fuelStation = FuelStation::factory()->create();
-        $review = FuelStationReview::factory()->create([ // Tworzenie recenzji
-            'user_id' => 1,
+
+        // Create a user
+        $user = User::factory()->create();
+
+        // Create a review using the created user's ID
+        $review = FuelStationReview::factory()->create([
+            'fuel_station_id' => $fuelStation->id,
+            'user_id' => $user->id,
             'rating' => 5,
-            'review' => 'Great fuel station!', // Dodawanie recenzji
+            'review' => 'Great fuel station!',
         ]);
 
         $this->assertInstanceOf(FuelStationReview::class, $review);
         $this->assertEquals($fuelStation->id, $review->fuel_station_id);
-        $this->assertEquals(1, $review->user_id);
+        $this->assertEquals($user->id, $review->user_id);
         $this->assertEquals(5, $review->rating);
-        $this->assertEquals('Great fuel station!', $review->review); // Sprawdzanie recenzji
+        $this->assertEquals('Great fuel station!', $review->review);
     }
 }

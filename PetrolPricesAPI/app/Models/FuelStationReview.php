@@ -23,6 +23,15 @@ class FuelStationReview extends Model
         'review',  // Dodaj tę właściwość do fillable
         'rating',
     ];
+    protected static function boot()
+    {
+        parent::boot();
 
+        static::creating(function ($model) {
+            if (empty($model->review)) {
+                $model->review = ''; // Set default value here
+            }
+        });
+    }
     use HasFactory;
 }

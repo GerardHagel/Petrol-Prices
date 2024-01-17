@@ -3,8 +3,10 @@
 namespace Tests\Unit\Models;
 
 use Tests\TestCase;
+use App\Models\User;
 use App\Models\FuelPrice;
 use App\Models\FuelStation;
+use App\Models\FuelStationReview;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FuelStationTest extends TestCase
@@ -37,6 +39,7 @@ class FuelStationTest extends TestCase
         $fuelPrice = $fuelStation->fuelPrices()->create([
             'fuel_type' => 'Gasoline',
             'price' => 2.50,
+            'date' => now(),
         ]);
 
         $this->assertInstanceOf(FuelPrice::class, $fuelPrice);
@@ -47,17 +50,23 @@ class FuelStationTest extends TestCase
 
     public function test_can_retrieve_reviews_relation()
     {
+        // Create a fuel station
         $fuelStation = FuelStation::factory()->create();
+
+        // Create a user
+        $user = User::factory()->create();
+
+        // Create a review using the user's ID and the correct field name
         $review = $fuelStation->reviews()->create([
-            'user_id' => 1,
+            'user_id' => $user->id,
             'rating' => 5,
-            'comment' => 'Great fuel station!',
+            'review' => 'Great fuel station!', // Ensure this field name matches your schema
         ]);
 
         $this->assertInstanceOf(FuelStationReview::class, $review);
         $this->assertEquals($fuelStation->id, $review->fuel_station_id);
-        $this->assertEquals(1, $review->user_id);
+        $this->assertEquals($user->id, $review->user_id);
         $this->assertEquals(5, $review->rating);
-        $this->assertEquals('Great fuel station!', $review->comment);
+        $this->assertEquals('Great fuel station!', $review->review); // Use the correct field here as well
     }
 }

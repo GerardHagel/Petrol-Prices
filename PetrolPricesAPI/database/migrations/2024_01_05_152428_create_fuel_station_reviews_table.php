@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateFuelStationReviewsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('fuel_station_reviews', function (Blueprint $table) {
@@ -19,17 +14,12 @@ class CreateFuelStationReviewsTable extends Migration
             $table->foreign('fuel_station_id')->references('id')->on('fuel_stations')->onDelete('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('review')->default(''); // Dodaj domyślną wartość
+            $table->string('review', 255)->default(''); // Changed to VARCHAR with default value
             $table->unsignedTinyInteger('rating');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('fuel_station_reviews');
