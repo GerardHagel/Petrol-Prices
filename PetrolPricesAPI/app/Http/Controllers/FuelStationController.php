@@ -39,7 +39,6 @@ class FuelStationController extends Controller
         // Return a JSON response for the API
         return response()->json($fuelStations);
     }
-
     public function index()
     {
         $fuelStations = FuelStation::all();

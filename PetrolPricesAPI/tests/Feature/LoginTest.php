@@ -43,18 +43,6 @@ class LoginTest extends TestCase
         $response->assertRedirect(route('login'));
     }
 
-    public function testFindOrCreateUser()
-    {
-        $fakeUser = new User([
-            'id' => 1,
-            'name' => 'John Doe',
-            'email' => 'johndoe@example.com',
-        ]);
-
-        $this->mockSocialiteFacade($fakeUser);
-
-        // Additional assertions to verify user creation or retrieval logic
-    }
 
     // Additional tests as needed
 }

@@ -13,7 +13,9 @@ class FuelPriceFactory extends Factory
     public function definition()
     {
         return [
-            'fuel_station_id' => FuelStation::factory()->create()->id,
+            'fuel_station_id' => function () {
+                return FuelStation::factory()->create()->id;
+            },
             'fuel_type' => $this->faker->randomElement(['Diesel', 'Gasoline']),
             'price' => $this->faker->randomFloat(2, 1, 3), // Przykładowa cena z zakresu od 1 do 3
             'date' => $this->faker->dateTimeBetween('-1 year', 'now'),
