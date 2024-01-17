@@ -3,14 +3,14 @@
     <h2>Aktualne ceny paliwa</h2><br>
     <ul>
       <li v-for="price in currentPrices" :key="price.id">
-        {{ price.type }}: {{ price.price }}
+        {{ price.fuel_type }}: {{ price.price }}
       </li>
     </ul>
 
     <h2>Historyczne ceny paliwa</h2><br>
     <ul>
       <li v-for="price in historicalPrices" :key="price.id">
-        {{ price.type }}: {{ price.price }}
+        {{ price.fuel_type }}: {{ price.price }}
       </li>
     </ul>
   </div>
@@ -26,25 +26,25 @@ export default {
   },
   mounted() {
     this.getCurrentPrices();
-    this.getHistoricalPrices();
+    /*this.getHistoricalPrices();*/
   },
   methods: {
     async getCurrentPrices() {
       try {
-        const response = await this.$axios.get('/api/current-prices');
+        const response = await this.$axios.get('http://localhost:8080/api/current-prices');
         this.currentPrices = response.data;
       } catch (error) {
         console.error('Błąd podczas pobierania aktualnych cen paliwa:', error);
       }
     },
-    async getHistoricalPrices() {
+    /*async getHistoricalPrices() {
       try {
-        const response = await this.$axios.get('/api/historical-prices');
+        const response = await this.$axios.get('http://localhost:8080/api/historical-prices');
         this.historicalPrices = response.data;
       } catch (error) {
         console.error('Błąd podczas pobierania historycznych cen paliwa:', error);
       }
-    },
+    },*/
   },
 };
 </script>
