@@ -42,11 +42,9 @@ Route::delete('/fuel-stations/{fuelStation}', [FuelStationController::class, 'de
 
 Route::get('/fuel-stations/{id}', [FuelStationController::class, 'show'])->name('fuel_stations.show');
 
+Route::get('/search-fuel-stations', 'FuelStationController@search');
 
 
-
-//Route::post('/api/fuel-stations/search', 'FuelStationController@search');
-//Route::post('/fuel-stations/search', 'FuelStationController@search')->name('fuel-stations.search');
 Route::post('/submit-ticket', [SupportTicketController::class, 'submitTicket']);
 Route::get('/get-tickets', [SupportTicketController::class, 'getTickets']);
 //->name('application');

@@ -38,8 +38,8 @@ class FuelStationControllerTest extends TestCase
             'open_now' => true,
         ];
 
-        // Wywołanie akcji kontrolera
-        $response = $this->post('/search', $searchParams);
+        // Wywołanie akcji kontrolera z poprawionym URL
+        $response = $this->post('/api/fuel-stations/search', $searchParams);
 
         // Sprawdzanie, czy odpowiedź jest poprawna
         $response->assertStatus(200);

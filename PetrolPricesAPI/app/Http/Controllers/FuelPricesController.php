@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FuelStation;
+use App\Models\FuelPrice;
 use Illuminate\Http\Response;
 
 class FuelPricesController extends Controller
@@ -15,7 +15,7 @@ class FuelPricesController extends Controller
     public function getCurrentPrices()
     {
         // Select only the fuel_type and price from each FuelStation record
-        $currentPrices = FuelStation::select('fuel_type', 'price')->get();
+        $currentPrices = FuelPrice::select('fuel_type', 'price')->get();
 
         // Return the fetched data as JSON
         return response()->json($currentPrices);

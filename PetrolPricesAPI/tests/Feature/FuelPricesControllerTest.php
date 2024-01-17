@@ -24,7 +24,8 @@ class FuelPricesControllerTest extends TestCase
         ]);
 
         // Wywołanie akcji kontrolera
-        $response = $this->get('/current-prices');
+        $this->refreshApplication(); // Refresh the application
+        $response = $this->get('/api/current-prices');;
 
         // Sprawdzanie, czy odpowiedź jest poprawna
         $response->assertStatus(200);
