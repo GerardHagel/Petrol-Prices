@@ -1,9 +1,8 @@
 
 <template>
   <div class="form-box">
-    <h2>Kalkulator Walutowy</h2>
-    <!-- Formularz do wprowadzenia danych -->
-    <input v-model="amount" type="number" placeholder="Kwota" />
+    <h3>Kalkulator Walutowy</h3>
+    <input type="number" v-model.number="amount" placeholder="Kwota">
     <select v-model="fromCurrency">
       <option v-for="currency in currencies" :key="currency" :value="currency">{{ currency }}</option>
     </select>

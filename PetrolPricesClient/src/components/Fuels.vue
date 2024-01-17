@@ -17,34 +17,36 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   data() {
     return {
       currentPrices: [],
-      historicalPrices: [],
+      /*historicalPrices: [],*/
     };
   },
   mounted() {
+    // Pobierz aktualne ceny
     this.getCurrentPrices();
-    /*this.getHistoricalPrices();*/
   },
   methods: {
-    async getCurrentPrices() {
-      try {
-        const response = await this.$axios.get('http://localhost:8080/api/current-prices');
-        this.currentPrices = response.data;
-      } catch (error) {
-        console.error('Błąd podczas pobierania aktualnych cen paliwa:', error);
-      }
-    },
-    /*async getHistoricalPrices() {
-      try {
-        const response = await this.$axios.get('http://localhost:8080/api/historical-prices');
+    getCurrentPrices() {
+      // Wywołaj API, aby pobrać aktualne ceny
+      axios.get('http://localhost:8000/api/current-prices')
+        .then(response => {
+          this.currentPrices = response.data;
+        })
+        .catch(error => {
+          console.error('Błąd podczas pobierania aktualnych cen', error);
+        });},
+    // Pobierz historyczne ceny
+    /*axios.get('http://localhost:8080/api/historical-prices')
+      .then(response => {
         this.historicalPrices = response.data;
-      } catch (error) {
-        console.error('Błąd podczas pobierania historycznych cen paliwa:', error);
-      }
-    },*/
+      })
+      .catch(error => {
+        console.error('Błąd podczas pobierania historycznych cen', error);
+      });*/
   },
 };
 </script>
